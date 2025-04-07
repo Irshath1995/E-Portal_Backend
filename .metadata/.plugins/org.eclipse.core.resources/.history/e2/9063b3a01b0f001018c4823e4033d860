@@ -1,0 +1,25 @@
+package com.example.E_Portal.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.E_Portal.dto.EmployeeDto;
+import com.example.E_Portal.model.Employee;
+import com.example.E_Portal.repository.EmployeeRepo;
+import com.example.E_Portal.service.EmployeeService;
+
+@Service
+public class EmployeeServiceImpl implements EmployeeService {
+	
+	@Autowired
+	private EmployeeRepo employeeRepo;
+
+	@Override
+	public EmployeeDto addEmployee(EmployeeDto employeeDto) {
+		Employee employee = EmployeeDto.toEntity(employeeDto);
+		employeeRepo.save(employee);
+		
+		return employeeDto;
+	}
+
+}

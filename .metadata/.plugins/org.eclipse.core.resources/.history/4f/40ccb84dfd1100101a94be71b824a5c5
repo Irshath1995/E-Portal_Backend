@@ -1,0 +1,9 @@
+package com.example.E_Portal.service;
+
+import com.example.E_Portal.dto.EventsDto;
+
+public interface EventsService {
+	
+	EventsDto addEvents(EventsDto eventsDto);
+
+}

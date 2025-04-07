@@ -1,0 +1,32 @@
+package com.example.E_Portal.serviceImpl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.E_Portal.dto.EventsDto;
+import com.example.E_Portal.model.Events;
+import com.example.E_Portal.repository.EventsRepo;
+import com.example.E_Portal.service.EventsService;
+
+@Service
+public class EventsServiceImpl implements EventsService {
+
+	@Autowired
+	private EventsRepo eventsRepo;
+
+	public EventsServiceImpl(EventsRepo eventsRepo) {
+		this.eventsRepo = eventsRepo;
+	}
+
+	@Override
+	public EventsDto addEvents(EventsDto eventsDto) {
+		Events events = new Events();
+		events.setEventDescription(eventsDto.getEventDescription());
+		events.setEventDateTime(eventsDto.getEventDateTime());
+
+		eventsRepo.save(events);
+
+		return eventsDto;
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.example.E_Portal.repository;
+
+public class EventsRepo {
+
+}

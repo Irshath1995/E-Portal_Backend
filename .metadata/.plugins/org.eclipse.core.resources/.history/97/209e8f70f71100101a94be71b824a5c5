@@ -1,0 +1,17 @@
+package com.example.E_Portal.serviceImpl;
+
+import org.springframework.stereotype.Service;
+
+import com.example.E_Portal.dto.EventsDto;
+import com.example.E_Portal.service.EventsService;
+
+@Service
+public class EventsServiceImpl implements EventsService{
+
+	@Override
+	public EventsDto addEvents(EventsDto eventsDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

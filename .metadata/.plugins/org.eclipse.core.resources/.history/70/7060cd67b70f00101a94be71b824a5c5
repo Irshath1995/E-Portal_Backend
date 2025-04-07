@@ -1,0 +1,91 @@
+package com.example.E_Portal.controller;
+
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.example.E_Portal.constant.Constant;
+import com.example.E_Portal.dto.EmployeeDto;
+import com.example.E_Portal.model.Employee;
+import com.example.E_Portal.repository.EmployeeRepo;
+import com.example.E_Portal.service.EmployeeService;
+
+import io.minio.MinioClient;
+import io.minio.PutObjectArgs;
+import jakarta.validation.Valid;
+
+@RestController
+@RequestMapping("/employee")
+public class EmployeeController {
+	
+	@Autowired
+	private MinioClient minioClient;
+	@Autowired
+	private EmployeeRepo employeeRepo;
+	@Autowired
+	private EmployeeService employeeService;
+	
+	public EmployeeController() {
+	}
+
+	@PostMapping("/{empId}/uploadImage")
+	public ResponseEntity<String> uploadImage(@PathVariable Integer empId, @RequestParam("empImage") MultipartFile empImage){
+		return employeeService.uploadImage(empId, empImage);
+	}
+	
+	@PostMapping("/addEmployee")
+	public ResponseEntity<EmployeeDto> addEmployee(@Valid @RequestBody EmployeeDto employeeDto){
+		EmployeeDto addEmployee = employeeService.addEmployee(employeeDto);
+		return ResponseEntity.status(HttpStatus.CREATED).body(addEmployee);
+	}
+	
+//	@ResponseStatus(HttpStatus.BAD_REQUEST)
+//	@ExceptionHandler(MethodArgumentNotValidException.class)
+//	public ResponseEntity<Map<String, String>> handleValidationException(MethodArgumentNotValidException ex){
+//		Map<String, String> errors = new HashMap<>();
+//		
+////		ex.getBindingResult().getAllErrors().forEach((error)->{;
+////			String fieldName = ((FieldError) error).getField();
+////			String errorMessage = error.getDefaultMessage();
+////			errors.put(fieldName, errorMessage);
+////		});
+//		
+//		ex.getBindingResult().getFieldErrors().forEach(error -> {
+//	        errors.put(error.getField(), error.getDefaultMessage()); // Directly get field and error message
+//	    });
+//		
+//		return ResponseEntity.badRequest().body(errors);
+//	}
+	
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(jakarta.validation.ConstraintViolationException.class)
+	public ResponseEntity<Map<String, String>> handleConstraintViolationException(jakarta.validation.ConstraintViolationException ex) {
+	    Map<String, String> errors = new HashMap<>();
+	    
+	    ex.getConstraintViolations().forEach(violation -> {
+	        String fieldName = violation.getPropertyPath().toString();
+	        String errorMessage = violation.getMessage();
+	        errors.put(fieldName, errorMessage);
+	    });
+
+	    return ResponseEntity.badRequest().body(errors);
+	}
+
+	
+}

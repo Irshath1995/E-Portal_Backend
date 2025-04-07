@@ -1,0 +1,47 @@
+package com.example.E_Portal.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.example.E_Portal.service.BannerService;
+
+@RestController
+@RequestMapping("/banner")
+public class BannerController {
+	
+	@Autowired
+	private BannerService bannerService;
+
+	@PostMapping("/uploadBannerImages")
+	public ResponseEntity<String> uploadBanner(@RequestParam("bannerImages") List<MultipartFile> bannerImages){
+		return bannerService.uploadBanner(bannerImages);
+	}
+	
+	@DeleteMapping("/deleteBannerImage")
+	public ResponseEntity<String> deleteBanner(@RequestParam("bannerImageName") List<String> bannerImageName){
+		return bannerService.deleteBanner(bannerImageName);
+	}
+	
+	@GetMapping("/getAllBanners")
+	public ResponseEntity<?> getAllBanners(){
+		try {
+			List<String> bannerUrls = bannerService.getAllBanners();
+			
+			return ResponseEntity.ok(bannerUrls);
+		}catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+					.body("Error retrieving files: "+e.getMessage());
+		}
+	}
+	
+}

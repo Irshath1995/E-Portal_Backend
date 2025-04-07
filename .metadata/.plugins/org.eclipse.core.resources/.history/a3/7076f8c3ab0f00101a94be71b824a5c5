@@ -1,0 +1,9 @@
+package com.example.E_Portal.service;
+
+import com.example.E_Portal.dto.EmployeeDto;
+
+public interface EmployeeService {
+	
+	EmployeeDto addEmployee(EmployeeDto employeeDto);
+
+}

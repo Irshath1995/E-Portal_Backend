@@ -1,0 +1,138 @@
+package com.example.E_Portal.dto;
+
+import java.time.LocalDate;
+
+import com.example.E_Portal.model.Employee;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+
+@Data
+public class EmployeeDto {
+
+	private Integer empId;
+	
+	@NotBlank(message="firstName is mandatory.")
+	private String firstName;
+	
+	@NotBlank(message="lastName is mandatory.")
+	private String lastName;
+	
+	@NotBlank(message="email is mandatory.")
+	private String email;
+	
+	@NotNull(message="dateOfJoining is mandatory.")
+	private LocalDate dateOfJoining;
+	
+	private LocalDate lastWorkingDay;
+	
+	@NotNull(message="dateOfBirth is mandatory.")
+	private LocalDate dateOfBirth;
+	
+	@NotBlank(message="gender is mandatory.")
+	private String gender;
+	
+	@NotBlank(message="totalYearsOfExperience is mandatory.")
+	private Integer totalYearsOfExperience;
+	
+	@NotBlank(message="workLocation is mandatory.")
+	private String workLocation;
+	
+	@NotBlank(message="currentAddress is mandatory.")
+	private String currentAddress;
+	
+	@NotBlank(message="permanentAddress is mandatory.")
+	private String permanentAddress;
+	
+	@NotBlank(message="region is mandatory.")
+	private String region;
+	
+	@NotBlank(message="firstName is mandatory.")
+	private String contactNumber;
+	
+	@NotBlank(message="emergencyContactPerson is mandatory.")
+	private String emergencyContactPerson;
+	
+	@NotBlank(message="emergencyContactPersonRelationship is mandatory.")
+	private String emergencyContactPersonRelationship;
+	
+	@NotBlank(message="emergencyNumber is mandatory.")
+	private String emergencyNumber;
+	
+	private Boolean isActive = true;
+	
+	@NotBlank(message="managerId is mandatory.")
+	private Integer managerId;
+	
+	private String initial;
+	
+	private String imageUrl;
+ 
+	public static EmployeeDto toDTO(Employee employee) {
+ 
+		if (employee == null) {
+			return null;
+		}
+ 
+		EmployeeDto EmployeeDto = new EmployeeDto();
+		EmployeeDto.setEmpId(employee.getEmpId());
+		EmployeeDto.setFirstName(employee.getFirstName());
+		EmployeeDto.setLastName(employee.getLastName());
+		EmployeeDto.setEmail(employee.getEmail());
+		EmployeeDto.setContactNumber(employee.getContactNumber());
+		EmployeeDto.setGender(employee.getGender());
+		EmployeeDto.setTotalYearsOfExperience(employee.getTotalYearsOfExperience());
+		EmployeeDto.setWorkLocation(employee.getWorkLocation());
+		EmployeeDto.setCurrentAddress(employee.getCurrentAddress());
+		EmployeeDto.setPermanentAddress(employee.getPermanentAddress());
+		EmployeeDto.setEmergencyContactPerson(employee.getEmergencyContactPerson());
+		EmployeeDto.setEmergencyContactPersonRelationship(employee.getEmergencyContactPersonRelationship());
+		EmployeeDto.setEmergencyNumber(employee.getEmergencyNumber());
+		EmployeeDto.setDateOfBirth(employee.getDateOfBirth());
+		EmployeeDto.setDateOfJoining(employee.getDateOfJoining());
+		EmployeeDto.setLastWorkingDay(employee.getLastWorkingDay());
+		EmployeeDto.setIsActive(employee.getIsActive());
+		EmployeeDto.setManagerId(employee.getManagerId());
+		EmployeeDto.setRegion(employee.getRegion());
+		EmployeeDto.setImageUrl(employee.getImageUrl());
+		EmployeeDto.setInitial(processInitial(EmployeeDto.getFirstName().trim(), EmployeeDto.getLastName().trim()));
+		return EmployeeDto;
+ 
+	}
+ 
+	public static Employee toEntity(EmployeeDto EmployeeDto) {
+ 
+		if (EmployeeDto == null) {
+			return null;
+		}
+ 
+		Employee employee = new Employee();
+		employee.setEmpId(EmployeeDto.getEmpId());
+		employee.setFirstName(EmployeeDto.getFirstName());
+		employee.setLastName(EmployeeDto.getLastName());
+		employee.setEmail(EmployeeDto.getEmail());
+		employee.setContactNumber(EmployeeDto.getContactNumber());
+		employee.setGender(EmployeeDto.getGender());
+		employee.setTotalYearsOfExperience(EmployeeDto.getTotalYearsOfExperience());
+		employee.setWorkLocation(EmployeeDto.getWorkLocation());
+		employee.setCurrentAddress(EmployeeDto.getCurrentAddress());
+		employee.setPermanentAddress(EmployeeDto.getPermanentAddress());
+		employee.setEmergencyContactPerson(EmployeeDto.getEmergencyContactPerson());
+		employee.setEmergencyContactPersonRelationship(EmployeeDto.getEmergencyContactPersonRelationship());
+		employee.setEmergencyNumber(EmployeeDto.getEmergencyNumber());
+		employee.setDateOfBirth(EmployeeDto.getDateOfBirth());
+		employee.setDateOfJoining(EmployeeDto.getDateOfJoining());
+		employee.setLastWorkingDay(EmployeeDto.getLastWorkingDay());
+		employee.setIsActive(EmployeeDto.getIsActive());
+		employee.setManagerId(EmployeeDto.getManagerId());
+		employee.setRegion(EmployeeDto.getRegion());
+		employee.setImageUrl(EmployeeDto.getImageUrl());
+		return employee;
+ 
+	}
+	private static String processInitial(String firstName,String lastName) {
+    	return Character.toUpperCase(firstName.charAt(0))+""+Character.toUpperCase(lastName.charAt(0));
+    }
+	
+}

@@ -1,0 +1,22 @@
+package com.example.E_Portal.minio;
+
+import io.minio.MinioClient;
+
+public class MinioConnection {
+	
+	public MinioClient createConnection() {
+		try {
+			MinioClient minioClient = MinioClient.builder()
+					.endpoint("http://localhost:9000")
+					.credentials("minioadmin", "minioadmin")
+					.build();
+			
+			System.out.println("Connetion success");
+			return minioClient;
+		}catch(Exception e){
+			System.out.println("Connetion failed: " + e.getMessage());
+		}
+		return null;
+	}
+	
+}

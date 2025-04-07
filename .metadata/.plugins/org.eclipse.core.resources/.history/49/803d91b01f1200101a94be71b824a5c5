@@ -1,0 +1,73 @@
+package com.example.E_Portal.serviceImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.example.E_Portal.dto.EventsDto;
+import com.example.E_Portal.model.Events;
+import com.example.E_Portal.repository.EventsRepo;
+import com.example.E_Portal.service.EventsService;
+
+@Service
+public class EventsServiceImpl implements EventsService {
+
+	@Autowired
+	private EventsRepo eventsRepo;
+
+	public EventsServiceImpl(EventsRepo eventsRepo) {
+		this.eventsRepo = eventsRepo;
+	}
+
+	@Override
+	public EventsDto addEvents(EventsDto eventsDto) {
+		Events events = new Events();
+		events.setEventDescription(eventsDto.getEventDescription());
+		events.setEventDateTime(eventsDto.getEventDateTime());
+
+		eventsRepo.save(events);
+
+		return eventsDto;
+	}
+
+	@Override
+	public List<EventsDto> getAllEvents() {
+		List<EventsDto> eventsDto = new ArrayList<>();
+		
+		for(Events event : eventsRepo.findAll()) {
+			eventsDto.add(EventsDto.toEventsDto(event));
+		}
+		
+		return eventsDto;
+	}
+
+	@Override
+	public Boolean deleteEvents(Integer id) {
+		Optional<Events> event = eventsRepo.findById(id);
+		
+		if(event.isEmpty())
+			return false;
+		
+		eventsRepo.deleteById(id); 
+		return true;
+	}
+
+	@Override
+	public ResponseEntity<?> updateEvent(Integer id, EventsDto eventsDto) {
+		Optional<Events> event = eventsRepo.findById(id);
+		if(event.get() == null) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Event not found");
+		}else {
+			event.get().setEventDescription(eventsDto.getEventDescription());
+			event.get().setEventDateTime(eventsDto.getEventDateTime());
+			eventsRepo.save(event.get());
+			return ResponseEntity.status(HttpStatus.OK).body(eventsDto);
+		}
+	}
+
+}

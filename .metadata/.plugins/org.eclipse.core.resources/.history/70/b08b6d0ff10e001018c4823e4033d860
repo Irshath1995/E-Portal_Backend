@@ -1,0 +1,95 @@
+package com.example.E_Portal.dto;
+
+import java.time.LocalDate;
+
+import com.example.E_Portal.model.Employee;
+
+public class EmployeeDto {
+
+	private Integer employeeId;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private LocalDate dateOfJoining;
+	private LocalDate lastWorkingDay;
+	private LocalDate dateOfBirth;
+	private String gender;
+	private Integer totalYearsOfExperience;
+	private String workLocation;
+	private String currentAddress;
+	private String permanentAddress;
+	private String region;
+	private String contactNumber;
+	private String emergencyContactPerson;
+	private String emergencyContactPersonRelationship;
+	private String emergencyNumber;
+	private Boolean isActive = true;
+	private Integer managerId;
+	private String managerName;
+	private String initial;
+ 
+	public static EmployeeDto toDTO(Employee employee) {
+ 
+		if (employee == null) {
+			return null;
+		}
+ 
+		EmployeeDto EmployeeDto = new EmployeeDto();
+		EmployeeDto.setEmployeeId(employee.getEmpId());
+		EmployeeDto.setFirstName(employee.getFirstName());
+		EmployeeDto.setLastName(employee.getLastName());
+		EmployeeDto.setEmail(employee.getEmail());
+		EmployeeDto.setContactNumber(employee.getContactNumber());
+		EmployeeDto.setGender(employee.getGender());
+		EmployeeDto.setTotalYearsOfExperience(employee.getTotalYearsOfExperience());
+		EmployeeDto.setWorkLocation(employee.getWorkLocation());
+		EmployeeDto.setCurrentAddress(employee.getCurrentAddress());
+		EmployeeDto.setPermanentAddress(employee.getPermanentAddress());
+		EmployeeDto.setEmergencyContactPerson(employee.getEmergencyContactPerson());
+		EmployeeDto.setEmergencyContactPersonRelationship(employee.getEmergencyContactPersonRelationship());
+		EmployeeDto.setEmergencyNumber(employee.getEmergencyNumber());
+		EmployeeDto.setDateOfBirth(employee.getDateOfBirth());
+		EmployeeDto.setDateOfJoining(employee.getDateOfJoining());
+		EmployeeDto.setLastWorkingDay(employee.getLastWorkingDay());
+		EmployeeDto.setIsActive(employee.getIsActive());
+		EmployeeDto.setManagerId(employee.getManagerId());
+		EmployeeDto.setRegion(employee.getRegion());
+		EmployeeDto.setInitial(processInitial(EmployeeDto.getFirstName().trim(), EmployeeDto.getLastName().trim()));
+		return EmployeeDto;
+ 
+	}
+ 
+	public static Employee toEntity(EmployeeDto EmployeeDto) {
+ 
+		if (EmployeeDto == null) {
+			return null;
+		}
+ 
+		Employee employee = new Employee();
+		employee.setEmployeeId(EmployeeDto.getEmployeeId());
+		employee.setFirstName(EmployeeDto.getFirstName());
+		employee.setLastName(EmployeeDto.getLastName());
+		employee.setEmail(EmployeeDto.getEmail());
+		employee.setContactNumber(EmployeeDto.getContactNumber());
+		employee.setGender(EmployeeDto.getGender());
+		employee.setTotalYearsOfExperience(EmployeeDto.getTotalYearsOfExperience());
+		employee.setWorkLocation(EmployeeDto.getWorkLocation());
+		employee.setCurrentAddress(EmployeeDto.getCurrentAddress());
+		employee.setPermanentAddress(EmployeeDto.getPermanentAddress());
+		employee.setEmergencyContactPerson(EmployeeDto.getEmergencyContactPerson());
+		employee.setEmergencyContactPersonRelationship(EmployeeDto.getEmergencyContactPersonRelationship());
+		employee.setEmergencyNumber(EmployeeDto.getEmergencyNumber());
+		employee.setDateOfBirth(EmployeeDto.getDateOfBirth());
+		employee.setDateOfJoining(EmployeeDto.getDateOfJoining());
+		employee.setLastWorkingDay(EmployeeDto.getLastWorkingDay());
+		employee.setIsActive(EmployeeDto.getIsActive());
+		employee.setManagerId(EmployeeDto.getManagerId());
+		employee.setRegion(EmployeeDto.getRegion());
+		return employee;
+ 
+	}
+	private static String processInitial(String firstName,String lastName) {
+    	return Character.toUpperCase(firstName.charAt(0))+""+Character.toUpperCase(lastName.charAt(0));
+    }
+	
+}

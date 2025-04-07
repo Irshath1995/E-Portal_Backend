@@ -1,0 +1,39 @@
+package com.example.E_Portal.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Entity
+@Table(name="employees")
+public class EmployeeModel {
+	
+	@Id
+	@Column(name="emp_id")
+	Integer empId;
+	@Column(name="emp_address")
+	String address;
+	@Column(name="emp_designation")
+	String designation;
+	@Column(name="emp_email")
+	String email;
+	@Column(name="emp_name")
+	String name;
+	@Column(name="emp_mobileno")
+	Integer mobileNo;
+	@Column(name="emp_isactive")
+	boolean isActive;
+	@Column(name="manager_id")
+	Integer managerId;
+	
+}

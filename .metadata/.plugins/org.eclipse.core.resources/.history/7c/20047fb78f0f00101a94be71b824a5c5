@@ -1,0 +1,12 @@
+package com.example.E_Portal.constant;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Constant {
+	
+	private static final String BUCKET_NAME = "employeeimages";
+	private static final String MALE_LOGO = "male_logo";
+	private static final String FEMALE_LOGO = "female_logo";
+
+}

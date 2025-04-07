@@ -1,0 +1,32 @@
+package com.example.E_Portal.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.E_Portal.dto.EventsDto;
+import com.example.E_Portal.service.EventsService;
+
+@RestController
+public class EventsController {
+	
+	@Autowired
+	private EventsService eventsService;
+	
+	@PostMapping("/addEvents")
+	public ResponseEntity<EventsDto> addEvents(@RequestBody EventsDto eventsDto){
+		try {
+			EventsDto events = eventsService.addEvents(eventsDto);
+			
+			return ResponseEntity.ok(events);
+		}catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		}
+	}
+
+}

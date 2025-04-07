@@ -1,0 +1,18 @@
+package com.example.E_Portal.serviceImpl;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.example.E_Portal.service.BannerService;
+
+@Service
+public class BannerServiceImpl implements BannerService{
+
+	@Override
+	public ResponseEntity<String> uploadBanner(MultipartFile banner) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

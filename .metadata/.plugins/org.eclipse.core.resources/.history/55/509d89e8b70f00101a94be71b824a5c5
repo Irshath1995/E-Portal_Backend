@@ -1,0 +1,5 @@
+package com.example.E_Portal.exceptionHandler;
+
+public class GlobalExceptionHandler {
+
+}

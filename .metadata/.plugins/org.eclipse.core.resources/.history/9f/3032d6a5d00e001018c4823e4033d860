@@ -1,0 +1,16 @@
+package com.example.E_Portal.minio;
+
+import io.minio.MinioClient;
+
+public class MinioConnection {
+	
+	public MinioClient createConnection() {
+		MinioClient minioClient = MinioClient.builder()
+				.endpoint("http://localhost:9001")
+				.credentials("admin", "passwprd")
+				.build();
+		
+		return minioClient;
+	}
+	
+}

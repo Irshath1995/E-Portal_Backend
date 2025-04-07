@@ -1,0 +1,18 @@
+package com.example.E_Portal.dto;
+
+import java.time.LocalDateTime;
+
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+
+@Data
+public class EventsDto {
+	
+	@NotBlank(message="Events description is mandatory.")
+	private String eventsDescription;
+	
+	@NotNull(message="Events startTime is mandatory.")
+	private LocalDateTime startTime;
+
+}

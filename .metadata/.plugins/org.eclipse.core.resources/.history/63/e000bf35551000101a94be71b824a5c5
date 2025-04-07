@@ -1,0 +1,14 @@
+package com.example.E_Portal.service;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.example.E_Portal.dto.EmployeeDto;
+
+public interface EmployeeService {
+	
+	ResponseEntity<String> uploadImage(Integer empId, MultipartFile empImage);
+	
+	EmployeeDto addEmployee(EmployeeDto employeeDto);
+
+}

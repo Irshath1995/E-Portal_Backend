@@ -1,0 +1,10 @@
+package com.example.E_Portal.serviceImpl;
+
+import org.springframework.stereotype.Service;
+
+import com.example.E_Portal.service.BannerService;
+
+@Service
+public class BannerServiceImpl implements BannerService{
+
+}
