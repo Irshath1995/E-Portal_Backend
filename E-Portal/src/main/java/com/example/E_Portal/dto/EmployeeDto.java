@@ -80,9 +80,13 @@ public class EmployeeDto {
 	@NotNull(message="managerId is mandatory.")
 	private Integer managerId;
 	
+	@NotBlank(message="initial is mandatory.")
 	private String initial;
 	
 	private String imageUrl;
+	
+	@NotBlank(message="designation is mandatory.")
+	private String designation;
  
 	public static EmployeeDto toDTO(Employee employee) {
  
@@ -111,7 +115,8 @@ public class EmployeeDto {
 		EmployeeDto.setManagerId(employee.getManagerId());
 		EmployeeDto.setRegion(employee.getRegion());
 		EmployeeDto.setImageUrl(employee.getImageUrl());
-		EmployeeDto.setInitial(processInitial(EmployeeDto.getFirstName().trim(), EmployeeDto.getLastName().trim()));
+		EmployeeDto.setDesignation(EmployeeDto.getDesignation());
+		EmployeeDto.setInitial(EmployeeDto.getInitial());
 		return EmployeeDto;
  
 	}
@@ -143,11 +148,14 @@ public class EmployeeDto {
 		employee.setManagerId(EmployeeDto.getManagerId());
 		employee.setRegion(EmployeeDto.getRegion());
 		employee.setImageUrl(EmployeeDto.getImageUrl());
+		employee.setDesignation(EmployeeDto.getDesignation());
+		employee.setInitial(EmployeeDto.getInitial());
 		return employee;
  
 	}
-	private static String processInitial(String firstName,String lastName) {
-    	return Character.toUpperCase(firstName.charAt(0))+""+Character.toUpperCase(lastName.charAt(0));
-    }
+	
+//	private static String processInitial(String firstName,String lastName) {
+//    	return Character.toUpperCase(firstName.charAt(0))+""+Character.toUpperCase(lastName.charAt(0));
+//    }
 	
 }
