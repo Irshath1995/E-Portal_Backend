@@ -80,7 +80,6 @@ public class EmployeeDto {
 	@NotNull(message="managerId is mandatory.")
 	private Integer managerId;
 	
-	@NotBlank(message="initial is mandatory.")
 	private String initial;
 	
 	private String imageUrl;
@@ -116,7 +115,6 @@ public class EmployeeDto {
 		EmployeeDto.setRegion(employee.getRegion());
 		EmployeeDto.setImageUrl(employee.getImageUrl());
 		EmployeeDto.setDesignation(EmployeeDto.getDesignation());
-		EmployeeDto.setInitial(EmployeeDto.getInitial());
 		return EmployeeDto;
  
 	}
@@ -149,7 +147,6 @@ public class EmployeeDto {
 		employee.setRegion(EmployeeDto.getRegion());
 		employee.setImageUrl(EmployeeDto.getImageUrl());
 		employee.setDesignation(EmployeeDto.getDesignation());
-		employee.setInitial(EmployeeDto.getInitial());
 		return employee;
  
 	}
