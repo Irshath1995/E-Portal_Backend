@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.E_Portal.constant.Constant;
 import com.example.E_Portal.dto.EmployeeDto;
-import com.example.E_Portal.minio.MinioConnection;
 import com.example.E_Portal.model.Employee;
 import com.example.E_Portal.repository.EmployeeRepo;
 import com.example.E_Portal.service.EmployeeService;
@@ -77,28 +76,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public EmployeeDto addEmployee(EmployeeDto employeeDto) {
-//		if(employeeDto.getImageUrl() == null) {
-//			String defaultImage = employeeDto.getGender().equalsIgnoreCase("male") ? Constant.MALE_LOGO : Constant.FEMALE_LOGO;
-//			
-//			try {
-//				//check if the default image exists in s3
-//				minioClient.statObject(
-//						io.minio.StatObjectArgs.builder()
-//						.bucket(Constant.BUCKET_NAME)
-//						.object(defaultImage)
-//						.build()
-//				);
-//				
-//				// set default image if exists.
-//				employeeDto.setImageUrl(defaultImage);
-//			}catch(Exception e) {
-//				// if default image not found, set null.
-//				employeeDto.setImageUrl(null);
-//			}
-//		}
+		Optional<Employee> employee = employeeRepo.findById(employeeDto.getEmpId());
+		if(!employee.isEmpty()) {
+			return null;
+		}
 		
-		Employee employee = EmployeeDto.toEntity(employeeDto);
-		employeeRepo.save(employee);
+		Employee emp = EmployeeDto.toEntity(employeeDto);
+		employeeRepo.save(emp);
 		
 		return employeeDto;
 	}

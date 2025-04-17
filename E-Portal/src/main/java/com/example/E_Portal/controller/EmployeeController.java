@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,17 +31,23 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/{empId}/uploadImage")
+	@PreAuthorize("hasAuthority('USER','ADMIN')")
 	public ResponseEntity<String> uploadImage(@PathVariable Integer empId, @RequestParam("empImage") MultipartFile empImage){
 		return employeeService.uploadImage(empId, empImage);
 	}
 	
 	@PostMapping("/addEmployee")
-	public ResponseEntity<EmployeeDto> addEmployee(@Valid @RequestBody EmployeeDto employeeDto){
+	@PreAuthorize("hasAuthority('ADMIN')")
+	public ResponseEntity<?> addEmployee(@Valid @RequestBody EmployeeDto employeeDto){
 		EmployeeDto addEmployee = employeeService.addEmployee(employeeDto);
+		if(addEmployee == null)
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Employee " + employeeDto.getEmpId() + " is already exist.");
+			
 		return ResponseEntity.status(HttpStatus.CREATED).body(addEmployee);
 	}
 	
 	@GetMapping("/allEmployees")
+	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<List<EmployeeDto>> getAllEmployees() {
 		List<EmployeeDto> employees = employeeService.getAllEmployees();
 		return ResponseEntity.status(HttpStatus.OK).body(employees);
