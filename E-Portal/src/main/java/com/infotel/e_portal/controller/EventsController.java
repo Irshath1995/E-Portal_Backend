@@ -20,13 +20,13 @@ import com.infotel.e_portal.service.EventsService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/events")
+@RequestMapping("/event")
 public class EventsController {
 	
 	@Autowired
 	private EventsService eventsService;
 	
-	@PostMapping("/addEvents")
+	@PostMapping("/addEvent")
 	public ResponseEntity<EventsDto> addEvents(@Valid @RequestBody EventsDto eventsDto){
 		EventsDto events = eventsService.addEvents(eventsDto);
 		return ResponseEntity.status(HttpStatus.CREATED).body(events);

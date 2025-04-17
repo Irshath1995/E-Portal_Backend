@@ -112,7 +112,8 @@ public class EmployeeDto {
 		EmployeeDto.setManagerId(employee.getManagerId());
 		EmployeeDto.setRegion(employee.getRegion());
 		EmployeeDto.setImageUrl(employee.getImageUrl());
-		EmployeeDto.setDesignation(EmployeeDto.getDesignation());
+		EmployeeDto.setDesignation(employee.getDesignation());
+		EmployeeDto.setInitial(employee.getInitial());
 		return EmployeeDto;
  
 	}

@@ -8,6 +8,6 @@ import com.infotel.e_portal.model.Employee;
 @Repository
 public interface EmployeeRepo extends JpaRepository<Employee, Integer>{
 
-	
+	Optional<Employee> findByEmail(String email);
 	
 }
