@@ -1,4 +1,4 @@
-package com.example.E_Portal.config;
+package com.example.e_portal.config;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -12,10 +12,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
-import com.example.E_Portal.dto.EmployeeDto;
-import com.example.E_Portal.model.Employee;
-import com.example.E_Portal.repository.EmployeeRepo;
-import com.example.E_Portal.service.JwtService;
+import com.example.e_portal.dto.EmployeeDto;
+import com.example.e_portal.model.Employee;
+import com.example.e_portal.repository.EmployeeRepo;
+import com.example.e_portal.service.JwtService;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

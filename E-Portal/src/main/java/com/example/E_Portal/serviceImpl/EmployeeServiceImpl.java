@@ -1,4 +1,4 @@
-package com.example.E_Portal.serviceImpl;
+package com.example.e_portal.serviceImpl;
 
 import java.io.InputStream;
 import java.util.List;
@@ -10,11 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.E_Portal.constant.Constant;
-import com.example.E_Portal.dto.EmployeeDto;
-import com.example.E_Portal.model.Employee;
-import com.example.E_Portal.repository.EmployeeRepo;
-import com.example.E_Portal.service.EmployeeService;
+import com.example.e_portal.constant.Constant;
+import com.example.e_portal.dto.EmployeeDto;
+import com.example.e_portal.model.Employee;
+import com.example.e_portal.repository.EmployeeRepo;
+import com.example.e_portal.service.EmployeeService;
 
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;

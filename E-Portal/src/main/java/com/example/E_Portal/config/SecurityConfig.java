@@ -1,4 +1,4 @@
-package com.example.E_Portal.config;
+package com.example.e_portal.config;
 
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.E_Portal.serviceImpl;
+package com.example.e_portal.serviceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,10 +9,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.example.E_Portal.dto.EventsDto;
-import com.example.E_Portal.model.Events;
-import com.example.E_Portal.repository.EventsRepo;
-import com.example.E_Portal.service.EventsService;
+import com.example.e_portal.dto.EventsDto;
+import com.example.e_portal.model.Events;
+import com.example.e_portal.repository.EventsRepo;
+import com.example.e_portal.service.EventsService;
 
 @Service
 public class EventsServiceImpl implements EventsService {

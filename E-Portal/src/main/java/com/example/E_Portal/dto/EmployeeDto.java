@@ -1,8 +1,8 @@
-package com.example.E_Portal.dto;
+package com.example.e_portal.dto;
 
 import java.time.LocalDate;
 
-import com.example.E_Portal.model.Employee;
+import com.example.e_portal.model.Employee;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

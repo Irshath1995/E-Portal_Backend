@@ -1,9 +1,9 @@
-package com.example.E_Portal.service;
+package com.example.e_portal.service;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 
-import com.example.E_Portal.dto.EmployeeDto;
+import com.example.e_portal.dto.EmployeeDto;
 
 public interface JwtService {
 	

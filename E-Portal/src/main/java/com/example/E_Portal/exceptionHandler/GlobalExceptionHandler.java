@@ -1,4 +1,4 @@
-package com.example.E_Portal.exceptionHandler;
+package com.example.e_portal.exceptionHandler;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

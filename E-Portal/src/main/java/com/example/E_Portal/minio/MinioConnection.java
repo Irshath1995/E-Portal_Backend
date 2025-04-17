@@ -1,4 +1,4 @@
-package com.example.E_Portal.minio;
+package com.example.e_portal.minio;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

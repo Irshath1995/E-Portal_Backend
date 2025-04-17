@@ -1,3 +1,4 @@
+package com.example.e_portal.config;
 //package com.example.E_Portal.config;
 //
 //import org.springframework.context.annotation.Bean;

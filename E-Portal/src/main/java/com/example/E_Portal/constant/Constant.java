@@ -1,4 +1,4 @@
-package com.example.E_Portal.constant;
+package com.example.e_portal.constant;
 
 
 public class Constant {

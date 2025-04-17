@@ -1,4 +1,4 @@
-package com.example.E_Portal.serviceImpl;
+package com.example.e_portal.serviceImpl;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
@@ -19,9 +19,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
-import com.example.E_Portal.dto.EmployeeDto;
-import com.example.E_Portal.model.User;
-import com.example.E_Portal.service.JwtService;
+import com.example.e_portal.dto.EmployeeDto;
+import com.example.e_portal.model.User;
+import com.example.e_portal.service.JwtService;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

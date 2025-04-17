@@ -1,11 +1,11 @@
-package com.example.E_Portal.service;
+package com.example.e_portal.service;
 
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.E_Portal.dto.EmployeeDto;
+import com.example.e_portal.dto.EmployeeDto;
 
 public interface EmployeeService {
 	

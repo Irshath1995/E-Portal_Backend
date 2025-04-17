@@ -1,4 +1,4 @@
-package com.example.E_Portal.model;
+package com.example.e_portal.model;
 
 import java.time.LocalDateTime;
 

@@ -1,4 +1,4 @@
-package com.example.E_Portal.controller;
+package com.example.e_portal.controller;
 
 import java.util.List;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.E_Portal.dto.EmployeeDto;
-import com.example.E_Portal.service.EmployeeService;
+import com.example.e_portal.dto.EmployeeDto;
+import com.example.e_portal.service.EmployeeService;
 
 import jakarta.validation.Valid;
 

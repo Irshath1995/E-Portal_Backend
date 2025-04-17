@@ -1,8 +1,8 @@
-package com.example.E_Portal.dto;
+package com.example.e_portal.dto;
 
 import java.time.LocalDateTime;
 
-import com.example.E_Portal.model.Events;
+import com.example.e_portal.model.Events;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import jakarta.validation.constraints.NotBlank;

@@ -1,4 +1,4 @@
-package com.example.E_Portal.serviceImpl;
+package com.example.e_portal.serviceImpl;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.E_Portal.constant.Constant;
-import com.example.E_Portal.service.BannerService;
+import com.example.e_portal.constant.Constant;
+import com.example.e_portal.service.BannerService;
 
 import io.minio.ListObjectsArgs;
 import io.minio.MinioClient;
