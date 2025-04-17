@@ -1,4 +1,4 @@
-package com.example.e_portal.config;
+package com.infotel.e_portal.config;
 //package com.example.E_Portal.config;
 //
 //import java.util.Collection;

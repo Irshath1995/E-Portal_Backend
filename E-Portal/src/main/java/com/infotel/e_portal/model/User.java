@@ -1,4 +1,4 @@
-package com.example.e_portal.model;
+package com.infotel.e_portal.model;
 
 import java.util.Collection;
 

@@ -84,6 +84,10 @@ public class EmployeeDto {
 	
 	@NotBlank(message="designation is mandatory.")
 	private String designation;
+	
+	@NotBlank(message="initial is mandatory.")
+	private String initial;
+
  
 	public static EmployeeDto toDTO(Employee employee) {
  

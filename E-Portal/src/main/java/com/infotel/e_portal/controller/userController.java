@@ -1,4 +1,4 @@
-package com.example.e_portal.controller;
+package com.infotel.e_portal.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.e_portal.model.User;
-import com.example.e_portal.serviceImpl.UserServiceImpl;
+import com.infotel.e_portal.model.User;
+import com.infotel.e_portal.serviceImpl.UserServiceImpl;
 
 @RestController
 @RequestMapping("/user")

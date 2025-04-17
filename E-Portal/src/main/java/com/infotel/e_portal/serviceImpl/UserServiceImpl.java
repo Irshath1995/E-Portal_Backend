@@ -1,16 +1,16 @@
-package com.example.e_portal.serviceImpl;
+package com.infotel.e_portal.serviceImpl;
 
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.e_portal.dto.EmployeeDto;
-import com.example.e_portal.model.Employee;
-import com.example.e_portal.model.User;
-import com.example.e_portal.repository.EmployeeRepo;
-import com.example.e_portal.repository.UserRepo;
-import com.example.e_portal.service.JwtService;
+import com.infotel.e_portal.dto.EmployeeDto;
+import com.infotel.e_portal.model.Employee;
+import com.infotel.e_portal.model.User;
+import com.infotel.e_portal.repository.EmployeeRepo;
+import com.infotel.e_portal.repository.UserRepo;
+import com.infotel.e_portal.service.JwtService;
 
 @Service
 public class UserServiceImpl {
